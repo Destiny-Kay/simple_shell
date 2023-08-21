@@ -6,11 +6,23 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-
+/**
+ * _myexit- An inbuilt exit function, exits the shell
+ * @args: the arguments that contain the exit status of the shell
+ * Return: integer representing the exit status of the shell.
+ */
 int _myexit(char **args) {
-    exit (0);
+	if (args[1] != NULL)
+	{
+		int exit_status = atoi(args[1]);
+		exit (exit_status);
+	}
+	exit(0);
 }
-
+/**
+ * is_interactive- checks whether a shell is in interactive mode or not
+ * Return: 1 if interactive and 0 if not in interactive moded
+ */
 int is_interactive(void)
 {
 	int interactive = isatty(STDIN_FILENO);
@@ -19,6 +31,7 @@ int is_interactive(void)
 }
 /**
  * execute_builtin_command- executes a builtin command
+ * @tokens: the command and arguments to be executed
  * Return: returns the exit status of executed command
  *
  */
@@ -44,8 +57,9 @@ int execute_builtin_command(char **tokens)
 }
 /**
  * execute_external_commands- executes external commands
- * 
- * 
+ * @tokens: the tokens that contain the command and to be executed and its arguments
+ * @shell_path - the path string to the shell
+ * Return: 0 on succcess and -1 on failure
  *
 */
 int execute_external_commands(char **tokens, char *shell_path)
@@ -111,6 +125,8 @@ int hsh(char **av)
 		if (inbuilt_return_value == -1)
 			execute_external_commands(tokens, shell_path);/*EXECUTE COMMAND IN PATH IF IT DOES NOT EXIST IN INBUILT FUNCTIONS*/
 	}
+	if (line)
+		free(line);
 	return (0);
 }
 
@@ -120,5 +136,6 @@ int hsh(char **av)
 */
 int main(int ac, char **av)
 {
+	(void)ac;
 	return (hsh(av));
 }
