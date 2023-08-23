@@ -48,12 +48,6 @@ int main(int argc, char **argv)
 	*executable_return = 0;
 	if (!environ)
 		exit(-100);
-	/*if (argc !- 1)
-	{
-		return_val = proc_file_command(argv[1], executable_return); process file with commands
-		free_env();
-		return(*executable_return);
-	} REMOVE THIS*/
 	if (!isatty(STDIN_FILENO))
 	{
 		while (return_val != ENDOFFILE && return_val != -3)

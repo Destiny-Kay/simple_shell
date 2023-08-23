@@ -149,12 +149,6 @@ int execute_cmd(int *execute_return)
 	free(line);
 	if (!av)
 		return (return_val);
-	/*if (check_av(av) != 0)
-	{
-		*execute_return = 2;
-		free_av(av, av);
-		return (*execute_return);
-	}*/
 	head = av;
 
 	for (i = 0; av[i]; i++)
@@ -174,30 +168,3 @@ int execute_cmd(int *execute_return)
 	free(head);
 	return (return_val);
 }
-/*CHECKS IF THERE"S ALEADING ; ;; &&*/
-/**
- * check_av - Checks if there are any leading ';', ';;', '&&', or '||'.
- * @av: 2D pointer to tokenized commands and arguments.
- *
- * Return: If a ';', '&&', or '||' is placed at an invalid position - 2.
- *	   Otherwise - 0.
- */
-/*int check_av(char **av)
-{
-	size_t i;
-	char *cur, *nex;
-
-	for (i = 0; av[i]; i++)
-	{
-		cur = av[i];
-		if (cur[0] == ';' || cur[0] == '&' || cur[0] == '|')
-		{
-			if (i == 0 || cur[1] == ';')
-				return (create_error(&av[i], 2));
-			nex = av[i + 1];
-			if (nex && (nex[0] == ';' || nex[0] == '&' || nex[0] == '|'))
-				return (create_error(&av[i + 1], 2));
-		}
-	}
-	return (0);
-}*/
