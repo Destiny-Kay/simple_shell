@@ -6,7 +6,7 @@
 
 char **copyenviron(void)
 {
-    int i;
+	int i;
 	char **_environ;
 	size_t size;
 
@@ -15,9 +15,9 @@ char **copyenviron(void)
 
 	_environ = malloc(sizeof(char *) * (size + 1));
 	if (!_environ)
-    {
+	{
 		return (NULL);
-    }
+	}
 	for (i = 0; environ[i]; i++)
 	{
 		_environ[i] = malloc(strlen(environ[i]) + 1);

@@ -27,6 +27,7 @@ typedef struct builtincomm
 {
 	char *name;
 	int(*function)(char **av, char **start);
+
 } builtincomm_t;
 
 /**
@@ -51,7 +52,7 @@ void free_av(char **av, char **head);
 
 /*INBUILT COMMANDS*/
 int myexit(char **args, char **front);
-int _cd(char **args);
+int _cd(char **args, char **head);
 /*COMMAND EXECUTION*/
 int execute_cmd(int *execute_return);
 int exec_command(char **av, char **head);

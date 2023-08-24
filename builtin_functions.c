@@ -1,15 +1,9 @@
 #include "main.h"
 /**
- * shellby_exit - Causes normal process termination
- *                for the shellby shell.
- * @args: An array of arguments containing the exit value.
- * @front: A double pointer to the beginning of args.
- *
- * Return: If there are no arguments - -3.
- *         If the given exit value is invalid - 2.
- *         O/w - exits with the given status value.
- *
- * Description: Upon returning -3, the program exits back in the main function.
+ * myexit- exits the shell
+ * @args: argument variables
+ * @front: pointer to args
+ * Return: no args_-3,
  */
 int myexit(char **args, char **front)
 {
@@ -41,27 +35,3 @@ int myexit(char **args, char **front)
 	exit(num);
 }
 
-/*int _cd(char **args)
-{
-    if (args[1] == NULL)
-    {
-        const char **home_dir = mygetenv("HOME");
-        if (home_dir != NULL)
-        {
-            if (chdir(home_dir) != 0)
-            {
-                perror("cd");
-                return (1);
-            }
-        }
-    }
-    else
-    {
-        if (chdir(args[1]) != 0)
-        {
-            perror("cd");
-            return (0);
-        }
-    }
-    return (0);
-} STILL WORKING ON IT*/

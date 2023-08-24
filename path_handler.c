@@ -18,16 +18,15 @@ char *append_cwd(char *dirpath)
 	{
 		if (dirpath[i] == ':')
 		{
-			if (i == 0 ||dirpath[i +1] == ':' || dirpath[i +1] == '\0')
+			if (i == 0 || dirpath[i + 1] == ':' || dirpath[i + 1] == '\0')
 				len += strlen(cwd) + 1;
 			else
 				len++;
 		}
 		else
 			len++;
-
 	}
-	dirpath_cpy = malloc(sizeof(char) * (len+ 1));/*len + 1*/
+	dirpath_cpy = malloc(sizeof(char) * (len + 1));/*len + 1*/
 	if (!dirpath_cpy)
 		return (NULL);
 	dirpath_cpy[0] = '\0';
@@ -47,7 +46,6 @@ char *append_cwd(char *dirpath)
 			}
 			else
 				strcat(dirpath_cpy, ":");
-
 		}
 		else
 			strncat(dirpath_cpy, &dirpath[i], 1);
@@ -55,7 +53,8 @@ char *append_cwd(char *dirpath)
 	return (dirpath_cpy);
 }
 /**
- * tokenize_path: parses the PATH env variable and tokenizes them based on the ':'
+ * tokenize_path: parses the PATH env variable and tokenizes
+ * them based on the ':'
  * @dirpath: list of PATH directories
  * Return: a linked list containing all the path directories
  */

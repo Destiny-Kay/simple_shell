@@ -5,7 +5,7 @@
  * @line: store command buffer.
  * @execute_return: Return value executed command.
  * Return: NULL on fail and pointer to command on success
- * 
+ *
  */
 char *extract_command_av(char *line, int *execute_return)
 {
@@ -31,7 +31,8 @@ char *extract_command_av(char *line, int *execute_return)
 }
 
 /**
- * check_for_logical_ops - calls commands based on the logical operators && and ||.
+ * check_for_logical_ops - calls commands based on the logical
+ * operators && and ||.
  * @av: Array of arguments.
  * @head: pointer to the head of argument variables.
  * @execute_return: Return value of executed command from the parent process.
@@ -49,7 +50,6 @@ int check_for_logical_ops(char **av, char **head, int *execute_return)
 		{
 			free(av[i]);
 			av[i] = NULL;
-			/*av = replace_aliases(av); Handle alias replacement*/
 			return_val = run_command(av, head, execute_return);
 			if (*execute_return != 0)
 			{
@@ -128,7 +128,7 @@ int run_command(char **av, char **head, int *execute_return)
 int execute_cmd(int *execute_return)
 {
 	char **av, *line = NULL, **head;
-    int return_val = 0, i;
+	int return_val = 0, i;
 
 	line = extract_command_av(line, execute_return);
 	if (!line)

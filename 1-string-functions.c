@@ -2,7 +2,7 @@
 
 
 /**
-* integer_to_string- converts an integer value toa string
+* integer_tostring- converts an integer value toa string
 * @number: the number to be converted
 * Return: string equivalent of the number
 */
@@ -26,14 +26,12 @@ string[0] = '-';
 else
 n = number;
 len--;
-do
-{
+do {
 string[len] = (n % 10) + '0';
 n = n / 10;
 len--;
-}
-while (n > 0);
-return(string);
+} while (n > 0);
+return (string);
 
 
 }

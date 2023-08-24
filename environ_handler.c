@@ -21,7 +21,8 @@ void _env(char **env)
 /**
  * mygetenv - Gets an environmental variable from the PATH.
  * @env_var: The environment variable to find.
- * Return: A pointer to the environment variable on success and NULL on failure.
+ * Return: A pointer to the environment variable on success
+ * NULL on failure.
  */
 char **mygetenv(const char *env_var)
 {

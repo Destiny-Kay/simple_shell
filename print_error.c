@@ -3,13 +3,15 @@
 /**
  * print_error- prints an error to the sterr
  * av: argument array
- *@error_val: the error value
+ * @av: argument variables
+ *@err_val: the error value
  *Return:error value
- * 
+ *
  */
 int print_error(char **av, int err_val)
 {
 	char *err;
+
 	switch (err_val)
 	{
 		case 126:

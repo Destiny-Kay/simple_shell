@@ -50,7 +50,7 @@ char **mystrtok(char *string, char *delim)
 }
 
 /**
- * delim_index - finds the delim index, thus 
+ * delim_index - finds the delim index
  * specifies end of first token
  * @str: The string to be searched.
  * @delim: The delimiter character.

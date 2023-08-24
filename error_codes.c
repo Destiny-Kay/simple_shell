@@ -3,7 +3,8 @@
 
 
 /**
- * generate_error_message - generates an error message based on the given parameters.
+ * generate_error_message - generates an error message based
+ * on the given parameters.
  * @av: array of arguments
  * @format: format string for the error message
  * @extra: extra information to include in the error message
@@ -16,20 +17,20 @@ char *generate_error_message(char **av, const char *format, const char *extra)
 	char *counterstring = integer_tostring(counter);
 
 	if (!counterstring)
-		return NULL;
+		return (NULL);
 
 	length = strlen(program_name) + strlen(av[0]) + strlen(counterstring) + strlen(format) + strlen(extra) + 1;
 	error = malloc(sizeof(char) * length);
 	if (!error)
 	{
 		free(counterstring);
-		return NULL;
+		return (NULL);
 	}
 
 	sprintf(error, format, program_name, counterstring, av[0], extra);
 
 	free(counterstring);
-	return error;
+	return (error);
 }
 
 /**
@@ -39,7 +40,7 @@ char *generate_error_message(char **av, const char *format, const char *extra)
  */
 char *permission_denied_126(char **av)
 {
-	return generate_error_message(av, "%s: %s: %s: Permission denied\n", "");
+return (generate_error_message(av, "%s: %s: %s: Permission denied\n", ""));
 }
 
 /**
@@ -49,5 +50,5 @@ char *permission_denied_126(char **av)
  */
 char *command_not_found_127(char **av)
 {
-	return generate_error_message(av, "%s: %s: %s: %s not found\n", "not found");
+return (generate_error_message(av, "%s: %s: %s: %s not found\n", "not found"));
 }
