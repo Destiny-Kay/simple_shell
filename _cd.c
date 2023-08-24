@@ -9,6 +9,7 @@
 */
 int _cd(char **args, char **head)
 {
+    (void)head;
 	if (args[1] == NULL)
 	{
 		const char *home_dir = getenv("HOME");
