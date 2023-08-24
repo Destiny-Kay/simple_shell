@@ -47,7 +47,6 @@ int find_length(int n)
 int len;
 unsigned int num;
 
-
 len = 1;
 if (n < 0)
 {

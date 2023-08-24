@@ -32,9 +32,7 @@ int myexit(char **args, char **front)
 		}
 	}
 	else
-	{
 		return (-3);
-	}
 	if (num > max - 1)
 		return (print_error(--args, 2));
 	args -= 1;

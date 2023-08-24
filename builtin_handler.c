@@ -7,14 +7,13 @@
  */
 int (*run_builtin_cmd(char *command))(char **av, char **head)
 {
+	int i;
+
 	builtincomm_t builtinfunctions[] = {
 		{ "exit", myexit },
-		/*{ "env", custom_env },
-		{ "cd", _cd },
-		*/
+		/*{ "cd", _cd },*/
 		{ NULL, NULL }
 	};
-	int i;
 
 	for (i = 0; builtinfunctions[i].name; i++)
 	{

@@ -1,11 +1,5 @@
 #include "main.h"
 
-char *extract_command_av(char *line, int *execute_return);/*DONE*/
-int check_for_logical_ops(char **av, char **head, int *execute_return);
-int run_command(char **av, char **head, int *execute_return);
-int execute_cmd(int *execute_return);
-int check_av(char **av);
-
 /**
  * extract_command_av - Extracts commands from the standard input.
  * @line: store command buffer.
@@ -27,15 +21,12 @@ char *extract_command_av(char *line, int *execute_return)
 	if (nread == 1)
 	{
 		counter++;
-		if (isatty(STDIN_FILENO))/*is_interactive*/
+		if (is_interactive())
 			write(STDOUT_FILENO, "hsh$ ", 5);
 		return (extract_command_av(line, execute_return));
 	}
 
 	line[nread - 1] = '\0';
-	/*handle_var_replacement(&line, execute_return); Handle variable replacement*/
-	/*handle_line(&line, nread); handle line partitioning based on ; || and &&*/
-
 	return (line);
 }
 
@@ -54,7 +45,7 @@ int check_for_logical_ops(char **av, char **head, int *execute_return)
 		return (*execute_return);
 	for (i = 0; av[i]; i++)
 	{
-		if (strncmp(av[i], "||", 2) == 0)
+		if (_strncmp(av[i], "||", 2) == 0)
 		{
 			free(av[i]);
 			av[i] = NULL;
@@ -76,7 +67,6 @@ int check_for_logical_ops(char **av, char **head, int *execute_return)
 		{
 			free(av[i]);
 			av[i] = NULL;
-			/*av = replace_aliases(av);*/
 			return_val = run_command(av, head, execute_return);
 			if (*execute_return == 0)
 			{
@@ -91,7 +81,6 @@ int check_for_logical_ops(char **av, char **head, int *execute_return)
 			}
 		}
 	}
-	/*av = replace_aliases(av);*/
 	return_val = run_command(av, head, execute_return);
 	return (return_val);
 }

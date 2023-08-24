@@ -40,15 +40,14 @@ int main(int argc, char **argv)
 	int *executable_return = &return_value;
 
 	(void)argc;
-	program_name = argv[0];
+	program_name = argv[0];/*Setting the programe name for handling errors*/
 	counter = 1;
-	signal(SIGINT, print_prompt);
-
 	environ = copyenviron();/*implement the copy env function*/
 	*executable_return = 0;
+
 	if (!environ)
 		exit(-100);
-	if (!isatty(STDIN_FILENO))
+	if (!is_interactive())
 	{
 		while (return_val != ENDOFFILE && return_val != -3)
 			return_val = execute_cmd(executable_return);

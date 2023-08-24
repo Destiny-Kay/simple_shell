@@ -10,9 +10,10 @@
  */
 linkedlist_t *add_node_end(linkedlist_t **head, char *dirpath)
 {
-	linkedlist_t *new_node = malloc(sizeof(linkedlist_t));
+	linkedlist_t *new_node;
 	linkedlist_t *last;
 
+	new_node = malloc(sizeof(linkedlist_t));
 	if (!new_node)
 		return (NULL);
 	new_node->path = dirpath;

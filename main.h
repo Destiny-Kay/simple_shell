@@ -45,15 +45,20 @@ linkedlist_t *add_node_end(linkedlist_t **head, char *dirpath);
 void free_linked_list(linkedlist_t *head);
 /*MAIN SHELL prompt and helper functions*/
 void print_prompt(int a);
+int is_interactive(void);
 void free_av(char **av, char **head);
 
 
 /*INBUILT COMMANDS*/
 int myexit(char **args, char **front);
+int _cd(char **args);
 /*COMMAND EXECUTION*/
 int execute_cmd(int *execute_return);
 int exec_command(char **av, char **head);
 int (*run_builtin_cmd(char *command))(char **av, char **head);
+int run_command(char **av, char **head, int *execute_return);
+int check_for_logical_ops(char **av, char **head, int *execute_return);
+char *extract_command_av(char *line, int *execute_return);
 
 /*HANDLING THE ENVIRON*/
 char **copyenviron(void);
@@ -69,10 +74,16 @@ char *append_cwd(char *dirpath);
 int print_error(char **av, int err_val);
 char *permission_denied_126(char **av);
 char *command_not_found_127(char **av);
+char *generate_error_message(char **av, const char *format, const char *extra);
 
 /*string functions*/
 
 char *integer_tostring(int number);
+int _strcmp(char *s1, char *s2);
+size_t _strlen(const char *str);
+int _strncmp(const char *str1, const char *str2, size_t n);
+char *_strcpy(char *dest, char *src);
+char *_strdup(char *str);
 
 /*OTHER FUNCTIONS*/
 int find_length(int n);/*find length of an integer number*/
