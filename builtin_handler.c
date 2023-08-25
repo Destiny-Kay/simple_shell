@@ -12,6 +12,7 @@ int (*run_builtin_cmd(char *command))(char **av, char **head)
 	builtincomm_t builtinfunctions[] = {
 		{ "exit", myexit },
 		{ "cd", _cd },
+		{"env", _env},
 		{ NULL, NULL }
 	};
 
