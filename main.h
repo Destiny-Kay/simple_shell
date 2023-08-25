@@ -53,6 +53,7 @@ void free_av(char **av, char **head);
 /*INBUILT COMMANDS*/
 int myexit(char **args, char **front);
 int _cd(char **args, char **head);
+int _env(char **env, char **head);
 /*COMMAND EXECUTION*/
 int execute_cmd(int *execute_return);
 int exec_command(char **av, char **head);

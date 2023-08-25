@@ -6,16 +6,21 @@
  * Return: void
  */
 
-void _env(char **env)
+int _env(char **env, char **head)
 {
 	int i = 0;
 
-	while (env[i] != NULL)
+	(void)head;
+	(void)env;
+	if (!environ)
+		return (-1);
+	while (environ[i])
 	{
-		write(STDOUT_FILENO, env[i], strlen(env[i]));
+		write(STDOUT_FILENO, environ[i], strlen(environ[i]));
 		write(STDOUT_FILENO, "\n", 1);
 		i++;
 	}
+return (0);
 }
 
 /**
